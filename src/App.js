@@ -10,6 +10,7 @@ export default function App() {
   */
   // const [ethereum] = useState(window); 
   const [currentAccount, setCurrentAccount] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const contractAddress = "0x700AA3806bEDAb6b413E261fe3B67f1bDfC847E0";
   const contractABI = abi.abi;
@@ -23,6 +24,8 @@ export default function App() {
         const signer = provider.getSigner();
         const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
 
+        setLoading(true);
+      
         let count = await wavePortalContract.getTotalWaves();
         console.log("Retrieved total wave count...", count.toNumber());
 
@@ -32,7 +35,9 @@ export default function App() {
         const waveTxn = await wavePortalContract.wave();
         console.log("Mining...", waveTxn.hash);
 
-        await waveTxn.wait();
+        const inProgress = await waveTxn.wait();
+        inProgress && setLoading(false);
+  
         console.log("Mined -- ", waveTxn.hash);
 
         count = await wavePortalContract.getTotalWaves();
@@ -105,16 +110,16 @@ export default function App() {
     <div className="mainContainer">
 
       <div className="dataContainer">
-        <div className="header">
-        👋 Hey there!
-        </div>
+        <div className="header">👋 Hey there!</div>
 
-        <div className="bio text-lg">
+        <div className="bio">
         I am maej, a developer with the rhymes! Connect your Ethereum wallet and wave at me!
         </div>
 
         <button className="waveButton" onClick={wave}>
-          Wave at Me
+          {
+            loading?  (<img className="spinner" src="/spinner/spinner.svg" alt="spinnerIcon" />) : "Wave at Me"
+          }
         </button>
 
         {/*
