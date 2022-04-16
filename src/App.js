@@ -116,20 +116,28 @@ export default function App() {
         I am maej, a developer with the rhymes! Connect your Ethereum wallet and wave at me!
         </div>
 
-        <button className="waveButton" onClick={wave}>
+        {/* <button className="waveButton" onClick={wave}>
           {
             loading?  (<img className="spinner" src="/spinner/spinner.svg" alt="spinnerIcon" />) : "Wave at Me"
           }
-        </button>
+        </button> */}
 
         {/*
         * If there is no currentAccount render this button
         */}
-        {!currentAccount && (
-          <button className="waveButton" onClick={connectWallet}>
-            Connect Wallet
+        {!currentAccount ?
+          (
+            <button className="waveButton" onClick={connectWallet}>
+              Connect Wallet
+            </button>
+          ):(
+            <button className="waveButton" onClick={wave}>
+            {
+              loading?  (<img className="spinner" src="/spinner/spinner.svg" alt="spinnerIcon" />) : "Wave at Me"
+            }
           </button>
-        )}
+          )
+        }
       </div>
     </div>
   );
