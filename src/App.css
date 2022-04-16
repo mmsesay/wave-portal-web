@@ -1,8 +1,11 @@
 .mainContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  margin-top: 64px;
+  height: 100vh;
+  background-image: linear-gradient(to right top, #051937, #622e62, #bf4262, #f57f3d, #ebd512);
+  /* margin-top: 64px; */
 }
 
 .dataContainer {
@@ -10,18 +13,24 @@
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  height: 20%;
+  padding: 0 20px;
+  -webkit-box-shadow: 0px 10px 13px -7px #c0c0c0, 3px 6px 13px 3px rgba(240,240,240,0); 
+  box-shadow: 0px 10px 13px -7px #5b5a5a, 3px 6px 13px 3px rgba(240,240,240,0);
+  /* border-radius: 5% 5% 0 0; */
+  background-color: #fff;
 }
 
 .header {
   text-align: center;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
 }
 
 .bio {
   text-align: center;
   color: gray;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .waveButton {
@@ -30,5 +39,7 @@
   padding: 8px;
   border: 0;
   border-radius: 5px;
-  
+  color: #fff;
+  font-size: 18px;
+  background-color: rgb(112, 112, 244);
 }
