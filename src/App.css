@@ -17,8 +17,8 @@
   padding: 0 20px;
   -webkit-box-shadow: 0px 10px 13px -7px #c0c0c0, 3px 6px 13px 3px rgba(240,240,240,0); 
   box-shadow: 0px 10px 13px -7px #5b5a5a, 3px 6px 13px 3px rgba(240,240,240,0);
-  /* border-radius: 5% 5% 0 0; */
   background-color: #fff;
+  border-radius: 5px;
 }
 
 .header {
@@ -48,4 +48,20 @@
 .spinner {
   height: 40px;
   width: 40px;
+}
+
+.message-input {
+  margin-top: 35px;
+  height: 40px;
+  color: gray;
+  padding-left: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border:1px solid rgb(185, 185, 186);
+}
+
+.message-input:focus {
+  outline: none !important;
+  border:1px solid rgb(112, 112, 244);
+  box-shadow: 0 0 10px #719ECE;
 }
