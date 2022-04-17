@@ -65,3 +65,11 @@
   border:1px solid rgb(112, 112, 244);
   box-shadow: 0 0 10px #719ECE;
 }
+
+.info-text {
+  font-size: 20px;
+  margin: 35 0 -40px 0px;
+  color: rgb(210, 27, 27);
+  text-align: center;
+  border-radius: 5px;
+}
