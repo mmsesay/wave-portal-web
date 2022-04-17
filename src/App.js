@@ -44,8 +44,9 @@ export default function App() {
 
           const inProgress = await waveTxn.wait();
           inProgress && setLoading(false);
-          inputMessage(""); // clear the input message
+          setInputMessage(""); // clear the input message
           console.log("Mined -- ", waveTxn.hash);
+          getAllWaves();
 
           count = await wavePortalContract.getTotalWaves();
           console.log("Retrieved total wave count...", count.toNumber());
@@ -146,6 +147,11 @@ export default function App() {
           });
         });
 
+        // sort the waves by timestamp so that newest waves are at the top
+        wavesCleaned.sort(
+          (a, b) => new Date(b.timestamp * 1000) - new Date(a.timestamp * 1000)
+        );
+
         /*
          * Store our data in React State
          */
@@ -193,6 +199,7 @@ export default function App() {
               type="text"
               placeholder="Have a message? Type it here!"
               className="message-input"
+              value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
             />
             <button className="waveButton" onClick={wave}>
@@ -209,22 +216,17 @@ export default function App() {
           </>
         )}
 
-        {allWaves.map((wave, index) => {
-          return (
-            <div
-              key={index}
-              style={{
-                backgroundColor: "OldLace",
-                marginTop: "16px",
-                padding: "8px",
-              }}
-            >
-              <div>Address: {wave.address}</div>
-              <div>Time: {wave.timestamp.toString()}</div>
-              <div>Message: {wave.message}</div>
-            </div>
-          );
-        })}
+        <div className="allwaves-container">
+          {allWaves.map((wave, index) => {
+            return (
+              <div key={index} className="message">
+                <div>Address: {wave.address}</div>
+                <div>Time: {wave.timestamp.toString().slice(0, 28)}</div>
+                <div>Message: {wave.message}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
