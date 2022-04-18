@@ -216,7 +216,7 @@ export default function App() {
   return (
     <div className="mainContainer">
       <div className="dataContainer">
-        <div className="header">👋 Hey there!</div>
+        <div className="header">👋 Kushɛ!</div>
 
         <div className="bio">
           I am maej, a developer with the rhymes! Connect your Ethereum wallet
