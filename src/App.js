@@ -14,7 +14,7 @@ export default function App() {
   const [inputMessage, setInputMessage] = useState("");
   const [info, setInfo] = useState("");
 
-  const contractAddress = "0x178AbA9A23ddedC15128fDcC5feD7f7f9475bA3F";
+  const contractAddress = "0x59891658E09FE01FDfCAAD7164C450df6A9EB16B";
   const contractABI = abi.abi;
 
   const wave = async () => {
