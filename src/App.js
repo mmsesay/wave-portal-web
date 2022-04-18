@@ -14,7 +14,7 @@ export default function App() {
   const [inputMessage, setInputMessage] = useState("");
   const [info, setInfo] = useState("");
 
-  const contractAddress = "0x59891658E09FE01FDfCAAD7164C450df6A9EB16B";
+  const contractAddress = "0xBA41AC8cc1aacfb27c1328FE6B477055fe50cf77";
   const contractABI = abi.abi;
 
   const wave = async () => {
@@ -261,7 +261,9 @@ export default function App() {
               <div key={index} className="message">
                 <div>From: {wave.address}</div>
                 <div>Time: {wave.timestamp.toString().slice(0, 28)}</div>
-                <div className="message-text-container">Message: <span className="message-text">{wave.message}</span></div>
+                <div className="message-text-container">
+                  Message: <span className="message-text">{wave.message}</span>
+                </div>
               </div>
             );
           })}
