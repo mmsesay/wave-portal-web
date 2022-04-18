@@ -259,9 +259,9 @@ export default function App() {
           {allWaves.map((wave, index) => {
             return (
               <div key={index} className="message">
-                <div>Address: {wave.address}</div>
+                <div>From: {wave.address}</div>
                 <div>Time: {wave.timestamp.toString().slice(0, 28)}</div>
-                <div>Message: {wave.message}</div>
+                <div className="message-text-container">Message: <span className="message-text">{wave.message}</span></div>
               </div>
             );
           })}

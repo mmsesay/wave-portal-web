@@ -81,6 +81,14 @@
   box-shadow: 0 0 10px whitesmoke;
 }
 
+.message-text {
+  font-weight: bold;
+}
+
+.message-text-container {
+  margin: 10px 0 5px 0;
+}
+
 .info-text {
   font-size: 20px;
   margin: 35 0 -40px 0px;
